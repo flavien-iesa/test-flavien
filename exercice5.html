@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercices Javascript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Exercice 5 : les opérations</div>
+        <script>
+
+            /**
+             * Faire l'addition de deux nombres 
+             * @param {number} a
+             * @param {number} b
+             */
+
+            var somme = function (a, b) {
+                alert(a + b);
+            };
+
+            /**
+             * Faire la soustraction de deux nombres 
+             * @param {number} a
+             * @param {number} b
+             * @returns {undefined}
+             */
+
+            var soustraction = function (a, b) {
+                return(a - b);
+            };
+
+            somme(12, 5);
+
+            var resultat = soustraction(11, 84);
+            
+            alert(soustraction (5, 18));
+            
+            somme(12, soustraction(10,5));
+
+
+        </script>
+    </body>
+</html>

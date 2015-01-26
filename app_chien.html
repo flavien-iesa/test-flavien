@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Chien</title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+            .chien {
+                width: 303px;
+                background: aliceblue;
+                position: relative;
+            }
+            .chien p , .chien ul ,.chien li {
+                margin:0;
+                padding:0;
+            }
+            .chien p span {
+                position: absolute;
+                top: 70px;
+                left: 130px;
+            }
+            .chien ul {
+                display: block;
+                list-style: none;
+                text-align: center;
+            }
+            .chien ul li{
+                display: inline-block;
+
+            }
+            .pilotage button {
+                font-size: 50px;
+                width: 80px;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <p class="pilotage">
+            <button id="moins">-</button>
+            <button id="plus">+</button>
+        </p>
+        <div class="chien" id="milou">
+            <p><img src="img/chien.png"><span>XXX</span></p>
+            <ul>
+                <li><img src="img/chien-patte.png"></li>
+                <li><img src="img/chien-patte.png"></li>
+                <li><img src="img/chien-patte.png"></li>
+                <li><img src="img/chien-patte.png"></li>
+            </ul>
+        </div>
+
+        <script src="js/jquery.js"></script>
+        <script>
+            var chien = {
+                nom: '',
+                nombrePattes: 4,
+                casserPattes: function () {
+                    // enleve une patte, s'il en reste
+                    if (this.nombrePattes > 0) {
+                        this.nombrePattes = this.nombrePattes - 1;
+                    }
+                    this.afficher();
+                },
+                restaurerPattes: function () {
+                    // rajoute une patte, jusqu'à 4
+                    if (this.nombrePattes < 4) {
+                        this.nombrePattes = this.nombrePattes + 1;
+                    }
+                    this.afficher();
+                },
+                afficher: function () {
+                    // Mettre le nom du chien dans le span
+                    $('#milou span').html(this.nom);
+
+                    // Faire une boucle pour afficher les pattes...
+                    $('#milou ul').html('');
+                    for (var i = 1; i <= this.nombrePattes; i++) {
+                        $('#milou ul').append('<li><img src="./img/chien-patte.png"></li>');
+                    }
+                }
+            };
+
+            var dog = Object.create(chien);
+            dog.nom = 'Milou';
+
+            dog.afficher();
+
+            $('#plus').click(function () {
+                // ajouter une patte
+                dog.restaurerPattes();
+            });
+            $('#moins').click(function () {
+                // retirer une patte
+                dog.casserPattes();
+            });
+        </script>
+    </body>
+</html>

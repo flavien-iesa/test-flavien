@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercices Javascript</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Exercice 6 : les objets</div>
+        <script>
+
+            var individu = {
+                nom: 'Carlier',
+                prenom: 'Richard'
+            };
+            console.log(individu.prenom);
+
+
+            var individu = {
+                nom: 'Carlier',
+                prenom: 'Richard',
+                afficher: function () {
+                    alert('Coucou ' + this.prenom);
+                }
+            };
+            individu.afficher();
+
+        </script>
+    </body>
+</html>
